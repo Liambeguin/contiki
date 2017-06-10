@@ -1,0 +1,17 @@
+### Will allow the inclusion of the correct CPU makefile
+CPU_FAMILY = cc26xx
+
+### Add to the source dirs
+CONTIKI_TARGET_DIRS += node795
+
+### Include the common launchpad makefile
+CFLAGS += -DBOARD_LAUNCHPAD=1
+
+CONTIKI_TARGET_DIRS += node795 common
+
+BOARD_SOURCEFILES += board.c node795-sensors.c leds-arch.c button-sensor.c
+BOARD_SOURCEFILES += ext-flash.c board-spi.c
+
+### Signal that we can be programmed with cc2538-bsl
+BOARD_SUPPORTS_BSL=1
+BSL_FLAGS += -b 115200
