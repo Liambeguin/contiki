@@ -637,6 +637,14 @@ publish(void)
   int len;
   int remaining = APP_BUFFER_SIZE;
   char def_rt_str[64];
+  char ip_str[64] = {};
+
+  for (int i = 0; i < LINKADDR_SIZE - 1; i+=2) {
+	  sprintf(ip_str, "%s%02x%02x%s", ip_str,
+			  linkaddr_node_addr.u8[i],
+			  linkaddr_node_addr.u8[i+1], i >= LINKADDR_SIZE-2 ? "" : ":");
+  }
+
 
   seq_nr_value++;
 
@@ -647,8 +655,9 @@ publish(void)
                  "\"d\":{"
                  "\"myName\":\"%s\","
                  "\"Seq #\":%d,"
-                 "\"Uptime (sec)\":%lu",
-                 BOARD_STRING, seq_nr_value, clock_seconds());
+                 "\"Uptime (sec)\":%lu,"
+		 "\"IP\":\"%s\"",
+                 BOARD_STRING, seq_nr_value, clock_seconds(), ip_str);
 
   if(len < 0 || len >= remaining) {
     printf("Buffer too short. Have %d, need %d + \\0\n", remaining, len);
