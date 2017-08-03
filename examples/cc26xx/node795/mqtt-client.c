@@ -62,7 +62,7 @@
  * If the node has a broker IP setting saved on flash, this value here will
  * get ignored
  */
-static const char *broker_ip = "0064:ff9b:0000:0000:0000:0000:b8ac:7cbd";
+static const char *broker_ip = "0000:0000:0000:0000:0000:ffff:36d1:bc2d";
 /*---------------------------------------------------------------------------*/
 #define ADDRESS_CONVERSION_OK       1
 #define ADDRESS_CONVERSION_ERROR    0
