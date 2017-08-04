@@ -84,11 +84,16 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_LED_1          IOID_6
-#define BOARD_IOID_LED_2          IOID_7
+#define BOARD_IOID_LED_1          IOID_29
+#define BOARD_IOID_LED_2          IOID_30
 #define BOARD_LED_1               (1 << BOARD_IOID_LED_1)
 #define BOARD_LED_2               (1 << BOARD_IOID_LED_2)
 #define BOARD_LED_ALL             (BOARD_LED_1 | BOARD_LED_2)
+
+#define BOARD_IOID_TLED1          IOID_6
+#define BOARD_IOID_TLED2          IOID_7
+#define BOARD_IOID_TLED3          IOID_5
+
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
@@ -97,10 +102,10 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_UART_RX        IOID_2
-#define BOARD_IOID_UART_TX        IOID_3
-#define BOARD_IOID_UART_RTS       IOID_18
-#define BOARD_IOID_UART_CTS       IOID_19
+#define BOARD_IOID_UART_RX        IOID_8
+#define BOARD_IOID_UART_TX        IOID_10
+#define BOARD_IOID_UART_RTS       IOID_9
+#define BOARD_IOID_UART_CTS       IOID_22
 #define BOARD_UART_RX             (1 << BOARD_IOID_UART_RX)
 #define BOARD_UART_TX             (1 << BOARD_IOID_UART_TX)
 #define BOARD_UART_RTS            (1 << BOARD_IOID_UART_RTS)
@@ -113,8 +118,8 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_KEY_LEFT       IOID_13
-#define BOARD_IOID_KEY_RIGHT      IOID_14
+#define BOARD_IOID_KEY_LEFT       IOID_21
+#define BOARD_IOID_KEY_RIGHT      IOID_26
 #define BOARD_KEY_LEFT            (1 << BOARD_IOID_KEY_LEFT)
 #define BOARD_KEY_RIGHT           (1 << BOARD_IOID_KEY_RIGHT)
 /** @} */
@@ -125,8 +130,8 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_SPI_MOSI       IOID_9
-#define BOARD_IOID_SPI_MISO       IOID_8
+#define BOARD_IOID_SPI_MOSI      IOID_1
+#define BOARD_IOID_SPI_MISO      IOID_2
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
@@ -137,7 +142,7 @@
  */
 #define BOARD_IOID_FLASH_CS       IOID_20
 #define BOARD_FLASH_CS            (1 << BOARD_IOID_FLASH_CS)
-#define BOARD_IOID_SPI_CLK_FLASH  IOID_10
+#define BOARD_IOID_SPI_CLK_FLASH  IOID_14
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
@@ -146,8 +151,8 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_SCL            IOID_4
-#define BOARD_IOID_SDA            IOID_5
+#define BOARD_IOID_SCL            IOID_3
+#define BOARD_IOID_SDA            IOID_4
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
@@ -179,29 +184,27 @@
  * @{
  */
 #define BOARD_IOID_DIO0           IOID_0
-#define BOARD_IOID_DIO1           IOID_1
+#define BOARD_IOID_DIO5           IOID_5
+
 #define BOARD_IOID_CS             IOID_11
 #define BOARD_IOID_TDO            IOID_16
 #define BOARD_IOID_TDI            IOID_17
+#define BOARD_IOID_DIO18          IOID_18
+#define BOARD_IOID_DIO19          IOID_19
 #define BOARD_IOID_DIO12          IOID_12
-#define BOARD_IOID_DIO15          IOID_15
-#define BOARD_IOID_DIO21          IOID_21
-#define BOARD_IOID_DIO22          IOID_22
+#define BOARD_IOID_DIO13          IOID_13
 #define BOARD_IOID_DIO23          IOID_23
 #define BOARD_IOID_DIO24          IOID_24
 #define BOARD_IOID_DIO25          IOID_25
-#define BOARD_IOID_DIO26          IOID_26
 #define BOARD_IOID_DIO27          IOID_27
 #define BOARD_IOID_DIO28          IOID_28
-#define BOARD_IOID_DIO29          IOID_29
-#define BOARD_IOID_DIO30          IOID_30
 
 #define BOARD_UNUSED_PINS { \
-    BOARD_IOID_DIO0, BOARD_IOID_DIO1, BOARD_IOID_CS, BOARD_IOID_TDO, \
-    BOARD_IOID_TDI, BOARD_IOID_DIO12, BOARD_IOID_DIO15, BOARD_IOID_DIO21, \
-    BOARD_IOID_DIO22, BOARD_IOID_DIO23, BOARD_IOID_DIO24, BOARD_IOID_DIO25, \
-    BOARD_IOID_DIO26, BOARD_IOID_DIO27, BOARD_IOID_DIO28, BOARD_IOID_DIO29, \
-    BOARD_IOID_DIO30, IOID_UNUSED \
+    BOARD_IOID_DIO0,BOARD_IOID_CS, BOARD_IOID_TDO, \
+    BOARD_IOID_TDI, BOARD_IOID_DIO12 ,BOARD_IOID_DIO18 , \
+    BOARD_IOID_DIO19,BOARD_IOID_DIO13,BOARD_IOID_DIO5, BOARD_IOID_DIO23, \
+    BOARD_IOID_DIO24, BOARD_IOID_DIO25, BOARD_IOID_DIO27, BOARD_IOID_DIO28, \
+    IOID_UNUSED \
   }
 /** @} */
 /*---------------------------------------------------------------------------*/
@@ -209,7 +212,7 @@
  * \name Device string used on startup
  * @{
  */
-#define BOARD_STRING "ELE795 - Node"
+#define BOARD_STRING "Prototype 1"
 
 /** @} */
 /*---------------------------------------------------------------------------*/

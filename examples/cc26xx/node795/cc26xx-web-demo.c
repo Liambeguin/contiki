@@ -885,6 +885,20 @@ init_sensors(void)
   SENSORS_ACTIVATE(reed_relay_sensor);
 #endif
 }
+
+static void turn_off_all_leds(void)
+{
+  leds_on(LEDS_ALL);
+
+  GPIO_setOutputEnableDio(BOARD_IOID_TLED1, GPIO_OUTPUT_ENABLE);
+  GPIO_setOutputEnableDio(BOARD_IOID_TLED2, GPIO_OUTPUT_ENABLE);
+  GPIO_setOutputEnableDio(BOARD_IOID_TLED3, GPIO_OUTPUT_ENABLE);
+
+  GPIO_writeDio(BOARD_IOID_TLED1, 0);
+  GPIO_writeDio(BOARD_IOID_TLED2, 0);
+  GPIO_writeDio(BOARD_IOID_TLED3, 0);
+}
+
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(cc26xx_web_demo_process, ev, data)
 {
@@ -893,6 +907,7 @@ PROCESS_THREAD(cc26xx_web_demo_process, ev, data)
   printf("CC26XX Web Demo Process\n");
 
   init_sensors();
+  turn_off_all_leds();
 
   cc26xx_web_demo_publish_event = process_alloc_event();
   cc26xx_web_demo_config_loaded_event = process_alloc_event();
